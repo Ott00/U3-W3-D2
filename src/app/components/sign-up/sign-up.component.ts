@@ -6,6 +6,7 @@ import {
   Validators,
   FormArray,
 } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,9 +15,8 @@ import {
 })
 export class SignUpComponent implements OnInit {
   registrationForm!: FormGroup;
-  registration: any[] = [];
 
-  constructor() {}
+  constructor(private loginSer: LoginService) {}
 
   ngOnInit(): void {
     this.registrationForm = new FormGroup({
@@ -38,9 +38,8 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.registrationForm);
-    this.registration.push(this.registrationForm.value);
-    console.log(this.registration);
+    console.log(this.registrationForm.value);
+    this.loginSer.addRegistration(this.registrationForm.value);
 
     console.log('Registrazione avvenuta correttamente');
     this.registrationForm.reset();
