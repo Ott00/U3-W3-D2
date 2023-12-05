@@ -13,13 +13,13 @@ import {
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  form!: FormGroup;
+  registrationForm!: FormGroup;
   registration: any[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
+    this.registrationForm = new FormGroup({
       name: new FormControl(null, Validators.required),
       surname: new FormControl(null, Validators.required),
       password: new FormControl(null, [
@@ -38,11 +38,11 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
-    this.registration.push(this.form.value);
+    console.log(this.registrationForm);
+    this.registration.push(this.registrationForm.value);
     console.log(this.registration);
 
     console.log('Registrazione avvenuta correttamente');
-    this.form.reset();
+    this.registrationForm.reset();
   }
 }

@@ -1,5 +1,5 @@
 <div class="container w-50 mt-4">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div class="d-flex justify-content-between gap-2 mb-1">
       <div class="w-50">
         <label for="name" class="form-label">Nome</label>
@@ -95,7 +95,7 @@
       <button
         type="submit"
         class="btn btn-dark mt-2 px-5"
-        [disabled]="!form.valid"
+        [disabled]="!registrationForm.valid"
       >
         Invia
       </button>
